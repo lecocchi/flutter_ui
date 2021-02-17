@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'calculator_button.dart';
+
 class CalculatorPage extends StatelessWidget {
   const CalculatorPage({Key key}) : super(key: key);
 
@@ -26,7 +28,7 @@ class CalculatorPage extends StatelessWidget {
                   _buildButton('C'),
                   _buildButton('+/-'),
                   _buildButton('%'),
-                  _buildButtonOperation('÷'),
+                  _buildButtonOperation('÷', Colors.orange, 70),
                 ],
               ),
               Row(
@@ -35,7 +37,7 @@ class CalculatorPage extends StatelessWidget {
                   _buildButtonNumber('7'),
                   _buildButtonNumber('8'),
                   _buildButtonNumber('9'),
-                  _buildButtonOperation('×'),
+                  _buildButtonOperation('×', Colors.orange, 70),
                 ],
               ),
               Row(
@@ -44,7 +46,7 @@ class CalculatorPage extends StatelessWidget {
                   _buildButtonNumber('4'),
                   _buildButtonNumber('5'),
                   _buildButtonNumber('6'),
-                  _buildButtonOperation('−'),
+                  _buildButtonOperation('−', Colors.orange, 70),
                 ],
               ),
               Row(
@@ -53,101 +55,26 @@ class CalculatorPage extends StatelessWidget {
                   _buildButtonNumber('1'),
                   _buildButtonNumber('2'),
                   _buildButtonNumber('3'),
-                  _buildButtonOperation('+'),
+                  _buildButtonOperation('+', Colors.orange, 70),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  _buildZeroButton(),
-                  _buildButtonNumber('.'),
-                  _buildButtonOperation('='),
+                  _buildButtonOperation('0', Color(0xFF333333), 150),
+                  CalculatorButton(
+                      width: 70, color: Color(0xFF333333), text: '.'),
+                  CalculatorButton(
+                    'Leandro',
+                    text: '=',
+                    color: Colors.orange,
+                    width: 70,
+                    heigth: 70,
+                  )
                 ],
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildDisplay(String number) {
-    return Text(
-      number,
-      style: TextStyle(
-        color: Colors.white,
-        fontSize: 90,
-      ),
-    );
-  }
-
-  Widget _buildButtonOperation(String icon) {
-    return Container(
-      width: 70,
-      height: 70,
-      margin: EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        color: Colors.orange,
-        borderRadius: BorderRadius.circular(50),
-      ),
-      child: Center(
-        child: Text(
-          icon,
-          style: TextStyle(color: Colors.white, fontSize: 35),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildButtonNumber(String number) {
-    return Container(
-      width: 70,
-      height: 70,
-      margin: EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        color: Color(0xFF333333),
-        borderRadius: BorderRadius.circular(50),
-      ),
-      child: Center(
-        child: Text(
-          number,
-          style: TextStyle(color: Colors.white, fontSize: 27),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildButton(String operation) {
-    return Container(
-      width: 70,
-      height: 70,
-      margin: EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        color: Color(0xFFa5a5a5),
-        borderRadius: BorderRadius.circular(50),
-      ),
-      child: Center(
-        child: Text(
-          operation,
-          style: TextStyle(color: Colors.black, fontSize: 27),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildZeroButton() {
-    return Container(
-      width: 150,
-      height: 70,
-      margin: EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        color: Color(0xFF333333),
-        borderRadius: BorderRadius.circular(50),
-      ),
-      child: Center(
-        child: Text(
-          '0',
-          style: TextStyle(color: Colors.white, fontSize: 27),
         ),
       ),
     );
