@@ -11,104 +11,118 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.black,
           body: Padding(
             padding: const EdgeInsets.all(50),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                veinticuatro(),
-                fila1(),
-                fila2(),
-                fila3(),
-                fila4(),
-                fila5(),
-              ],
-            ),
+            child: Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  _buildnumberTwentyFour(),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _buildDifferentNumbers('C'),
+                  _buildDifferentNumbers('+/-'),
+                  _buildDifferentNumbers('%'),
+                  _buildButtonOperation('÷', Colors.orange),
+                ],
+              ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    _buildDifferentNumbers('7'),
+                    _buildDifferentNumbers('8'),
+                    _buildDifferentNumbers('9'),
+                    _buildButtonOperation('x', Colors.orange),
+                  ]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _buildDifferentNumbers('4'),
+                  _buildDifferentNumbers('5'),
+                  _buildDifferentNumbers('6'),
+                  _buildButtonOperation('−', Colors.orange),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _buildDifferentNumbers('1'),
+                  _buildDifferentNumbers('2'),
+                  _buildDifferentNumbers('3'),
+                  _buildButtonOperation('−', Colors.orange),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _buildButtonZero(),
+                  _buildButtonOperation('.', Colors.grey),
+                  _buildButtonOperation('=', Colors.grey),
+                ],
+              ),
+            ]),
           ),
         ));
   }
 
-  Widget veinticuatro() {
+  Widget _buildnumberTwentyFour() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      //margin: EdgeInsets.only(right: 100),//
       children: [
         Text(
           '24',
-          style: TextStyle(color: Colors.white, fontSize: 100),
+          style: TextStyle(color: Colors.white, fontSize: 75),
         ),
       ],
     );
   }
 
-  Widget fila1() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        // Faltaria pasar : Colors.grey[50] //
-        circulo(), //color: Colors.grey[50] //
-        circulo(),
-        circulo(),
-        circulo(),
-      ],
-    );
-  }
-
-  Widget fila2() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        circulo(),
-        circulo(),
-        circulo(),
-        circulo(),
-      ],
-    );
-  }
-
-  Widget fila3() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        circulo(),
-        circulo(),
-        circulo(),
-        circulo(),
-      ],
-    );
-  }
-
-  Widget fila4() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        circulo(),
-        circulo(),
-        circulo(),
-        circulo(),
-      ],
-    );
-  }
-
-  Widget fila5() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        circulo(),
-        circulo(),
-        circulo(),
-        circulo(),
-      ],
-    );
-  }
-
-  Widget circulo() {
+  Widget _buildDifferentNumbers(String number) {
     return Container(
-      // padding: EdgeInsets.only(left: 80), para adentro//
-      //margin: EdgeInsets.only(left: 10, right: 10), //para afuera//
-      height: 130,
-      width: 130,
+      width: 80,
+      height: 80,
+      margin: EdgeInsets.all(7),
       decoration: BoxDecoration(
-        color: Colors.orange,
+        color: Colors.lightGreen,
         shape: BoxShape.circle,
+      ),
+      child: Center(
+        child: Text(
+          number,
+          style: TextStyle(color: Colors.white, fontSize: 25),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildButtonOperation(String icon, Color color) {
+    return Container(
+        width: 80,
+        height: 80,
+        margin: EdgeInsets.all(7),
+        decoration: BoxDecoration(
+          color: color,
+          shape: BoxShape.circle,
+        ),
+        child: Center(
+          child: Text(
+            icon,
+            style: TextStyle(color: Colors.white, fontSize: 25),
+          ),
+        ));
+  }
+
+  Widget _buildButtonZero() {
+    return Container(
+      width: 160,
+      height: 80,
+      margin: EdgeInsets.all(7),
+      decoration: BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
+      child: Center(
+        child: Text(
+          '0',
+          style: TextStyle(color: Colors.white, fontSize: 25),
+        ),
       ),
     );
   }
