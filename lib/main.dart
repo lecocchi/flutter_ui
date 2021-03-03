@@ -6,62 +6,66 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Material App',
         home: Scaffold(
           backgroundColor: Colors.black,
           body: Padding(
-            padding: const EdgeInsets.all(50),
-            child: Column(children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  _buildnumberTwentyFour(),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _buildDifferentNumbers('C'),
-                  _buildDifferentNumbers('+/-'),
-                  _buildDifferentNumbers('%'),
-                  _buildButtonOperation('÷', Colors.orange),
-                ],
-              ),
-              Row(
+            padding: const EdgeInsets.all(100),
+            child: Container(
+              width: 380,
+              child: Column(children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    _buildnumberTwentyFour(),
+                  ],
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    _buildDifferentNumbers('7'),
-                    _buildDifferentNumbers('8'),
-                    _buildDifferentNumbers('9'),
-                    _buildButtonOperation('x', Colors.orange),
-                  ]),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _buildDifferentNumbers('4'),
-                  _buildDifferentNumbers('5'),
-                  _buildDifferentNumbers('6'),
-                  _buildButtonOperation('−', Colors.orange),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _buildDifferentNumbers('1'),
-                  _buildDifferentNumbers('2'),
-                  _buildDifferentNumbers('3'),
-                  _buildButtonOperation('−', Colors.orange),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _buildButtonZero(),
-                  _buildButtonOperation('.', Colors.grey),
-                  _buildButtonOperation('=', Colors.grey),
-                ],
-              ),
-            ]),
+                    _buildDifferentNumbers('C'),
+                    _buildDifferentNumbers('+/-'),
+                    _buildDifferentNumbers('%'),
+                    _buildButtonOperation('÷', Colors.orange),
+                  ],
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      _buildDifferentNumbers('7'),
+                      _buildDifferentNumbers('8'),
+                      _buildDifferentNumbers('9'),
+                      _buildButtonOperation('x', Colors.orange),
+                    ]),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    _buildDifferentNumbers('4'),
+                    _buildDifferentNumbers('5'),
+                    _buildDifferentNumbers('6'),
+                    _buildButtonOperation('−', Colors.orange),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    _buildDifferentNumbers('1'),
+                    _buildDifferentNumbers('2'),
+                    _buildDifferentNumbers('3'),
+                    _buildButtonOperation('−', Colors.orange),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    _buildButtonZero(),
+                    _buildButtonOperation('.', Colors.grey),
+                    _buildButtonOperation('=', Colors.orange),
+                  ],
+                ),
+              ]),
+            ),
           ),
         ));
   }
@@ -83,7 +87,7 @@ class MyApp extends StatelessWidget {
       height: 80,
       margin: EdgeInsets.all(7),
       decoration: BoxDecoration(
-        color: Colors.lightGreen,
+        color: Colors.grey[500],
         shape: BoxShape.circle,
       ),
       child: Center(
@@ -117,7 +121,9 @@ class MyApp extends StatelessWidget {
       width: 160,
       height: 80,
       margin: EdgeInsets.all(7),
-      decoration: BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
+      padding: EdgeInsets.only(right: 80),
+      decoration: BoxDecoration(
+          color: Colors.grey, borderRadius: BorderRadius.circular(50)),
       child: Center(
         child: Text(
           '0',
