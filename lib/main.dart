@@ -26,7 +26,13 @@ class Home extends StatelessWidget {
                 image: NetworkImage('https://picsum.photos/600/900'),
               ),
             ),
-            Time(),
+            Column(
+              children: [
+                Time(),
+                Icons(),
+                Search(),
+              ],
+            ),
           ],
         ),
       ),
@@ -71,5 +77,44 @@ class Time extends StatelessWidget {
         )
       ],
     );
+  }
+}
+
+class Icons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Icons(Icons.account_balance),
+                Icons(Icons.account_balance),
+                Icons(Icons.account_balance),
+              ],
+            )
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Icons(Icons.account_balance),
+                Icons(Icons.account_balance),
+                Icons(Icons.account_balance),
+              ],
+            )
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class Search extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
