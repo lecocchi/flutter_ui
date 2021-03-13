@@ -8,7 +8,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Material App', debugShowCheckedModeBanner: false, home: Home());
+      title: 'Material App',
+      debugShowCheckedModeBanner: false,
+      home: Home(),
+    );
   }
 }
 
@@ -29,7 +32,7 @@ class Home extends StatelessWidget {
             Column(
               children: [
                 Time(),
-                Icons(),
+                CustomIcons(),
                 Search(),
               ],
             ),
@@ -80,7 +83,7 @@ class Time extends StatelessWidget {
   }
 }
 
-class Icons extends StatelessWidget {
+class CustomIcons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -89,9 +92,9 @@ class Icons extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Icons(Icons.account_balance),
-                Icons(Icons.account_balance),
-                Icons(Icons.account_balance),
+                Icon(Icons.add),
+                Icon(Icons.account_balance),
+                Icon(Icons.account_balance),
               ],
             )
           ],
@@ -100,9 +103,9 @@ class Icons extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Icons(Icons.account_balance),
-                Icons(Icons.account_balance),
-                Icons(Icons.account_balance),
+                Icon(Icons.account_balance),
+                Icon(Icons.account_balance),
+                Icon(Icons.account_balance),
               ],
             )
           ],
