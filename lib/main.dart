@@ -27,10 +27,19 @@ class Home extends StatelessWidget {
               ),
             ),
             Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                SizedBox(
+                  height: 30,
+                ),
                 Time(),
-                Icons(),
+                Spacer(),
+                Applications(),
+                Applications(),
                 Search(),
+                SizedBox(
+                  height: 30,
+                )
               ],
             ),
           ],
@@ -80,18 +89,25 @@ class Time extends StatelessWidget {
   }
 }
 
-class Icons extends StatelessWidget {
+class Applications extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Column(
           children: <Widget>[
             Row(
               children: <Widget>[
-                Icons(Icons.account_balance),
-                Icons(Icons.account_balance),
-                Icons(Icons.account_balance),
+                Icon(Icons.account_balance, color: Colors.white),
+                Icon(
+                  Icons.account_balance,
+                  color: Colors.white,
+                ),
+                Icon(
+                  Icons.account_balance,
+                  color: Colors.white,
+                ),
               ],
             )
           ],
@@ -100,9 +116,18 @@ class Icons extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Icons(Icons.account_balance),
-                Icons(Icons.account_balance),
-                Icons(Icons.account_balance),
+                Icon(
+                  Icons.account_balance,
+                  color: Colors.white,
+                ),
+                Icon(
+                  Icons.account_balance,
+                  color: Colors.white,
+                ),
+                Icon(
+                  Icons.account_balance,
+                  color: Colors.white,
+                ),
               ],
             )
           ],
@@ -115,6 +140,20 @@ class Icons extends StatelessWidget {
 class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      height: 60,
+      width: 250,
+      margin: EdgeInsets.only(top: 20),
+      decoration: BoxDecoration(
+        color: Colors.grey[400],
+        border: Border.all(color: Colors.black, width: 3),
+        borderRadius: BorderRadius.circular(40),
+        boxShadow: const [
+          BoxShadow(blurRadius: 10),
+        ],
+      ),
+      padding: EdgeInsets.only(right: 190),
+      child: Icon(Icons.search),
+    );
   }
 }
