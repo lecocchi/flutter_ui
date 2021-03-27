@@ -17,8 +17,47 @@ class LoginView extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
-            children: <Widget>[
-              TextField(),
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                child: Text('¡Bienvenido!',
+                    style: TextStyle(color: Color(0xFF00B4DF), fontSize: 50)),
+              ),
+              SizedBox(height: 20),
+              Text('Inicio de sesión',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Color(0xFF979797),
+                  )),
+              SizedBox(height: 20),
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Usuario',
+                ),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Contraseña',
+                ),
+              ),
+              SizedBox(height: 20),
+              Container(
+                child: FlatButton(
+                  //cuando es presionado, llama a un metodo
+                  onPressed: () {},
+                  child: Text(
+                    'Ingresar',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Color(0xFF00B4DF),
+                  highlightColor: Colors.black,
+                ),
+              ),
             ],
           ),
         ),
