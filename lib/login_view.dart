@@ -18,49 +18,68 @@ class LoginView extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                child: Text('¡Bienvenido!',
-                    style: TextStyle(color: Color(0xFF00B4DF), fontSize: 50)),
-              ),
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Wellcome(),
+              _buildSession(),
+              _buildTextField(labelText: 'Usuario'),
               SizedBox(height: 20),
-              Text('Inicio de sesión',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color(0xFF979797),
-                  )),
-              SizedBox(height: 20),
-              TextField(
+              _buildTextField(
+                labelText: 'Contrasena',
                 obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Usuario',
-                ),
               ),
-              SizedBox(height: 20),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Contraseña',
-                ),
-              ),
-              SizedBox(height: 20),
-              Container(
-                child: FlatButton(
-                  //cuando es presionado, llama a un metodo
-                  onPressed: () {},
-                  child: Text(
-                    'Ingresar',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Color(0xFF00B4DF),
-                  highlightColor: Colors.black,
-                ),
-              ),
+              _buildButton(),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildWellcome() {
+    return Container(
+      margin: EdgeInsets.only(bottom: 20),
+      child: Text('¡Bienvenido!',
+          style: TextStyle(color: Color(0xFF00B4DF), fontSize: 50)),
+    );
+  }
+
+  Widget _buildSession() {
+    return Container(
+      margin: EdgeInsets.only(bottom: 20),
+      child: Text(
+        'Inicio de sesión',
+        style: TextStyle(
+          fontSize: 15,
+          color: Color(0xFF979797),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTextField(
+      {@required String labelText, bool obscureText = false}) {
+    return TextField(
+      obscureText: obscureText,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(),
+        labelText: labelText,
+      ),
+    );
+  }
+
+  Widget _buildButton() {
+    return Container(
+      margin: EdgeInsets.only(top: 20),
+      child: FlatButton(
+        //cuando es presionado, llama a un metodo
+        onPressed: () {},
+        child: Text(
+          'Ingresar',
+          style: TextStyle(color: Colors.white),
+        ),
+        color: Color(0xFF00B4DF),
+        highlightColor: Colors.black,
       ),
     );
   }
