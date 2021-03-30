@@ -20,7 +20,7 @@ class LoginView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Wellcome(),
+              _buildWellcome(),
               _buildSession(),
               _buildTextField(labelText: 'Usuario'),
               SizedBox(height: 20),
