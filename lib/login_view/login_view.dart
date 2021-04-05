@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/login_view/widgets/subtitle_widget.dart';
+import 'package:flutter_ui/login_view/widgets/title_widget.dart';
+import 'package:flutter_ui/widgets/generic_button_widget.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key key}) : super(key: key);
@@ -20,38 +23,26 @@ class LoginView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              _buildWellcome(),
-              _buildSession(),
+              TitleWidget(
+                titleLabel: null,
+              ),
+              SubtitleWidget(
+                label: 'Inicio de sesion',
+              ),
               _buildTextField(labelText: 'Usuario'),
               SizedBox(height: 20),
               _buildTextField(
                 labelText: 'Contrasena',
                 obscureText: true,
               ),
-              _buildButton(),
+              GenericButtonWidget(
+                bgColor: Colors.blue,
+                label: 'Enviar',
+                margin: 20,
+                textStyle: TextStyle(color: Colors.white),
+              ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildWellcome() {
-    return Container(
-      margin: EdgeInsets.only(bottom: 20),
-      child: Text('¡Bienvenido!',
-          style: TextStyle(color: Color(0xFF00B4DF), fontSize: 50)),
-    );
-  }
-
-  Widget _buildSession() {
-    return Container(
-      margin: EdgeInsets.only(bottom: 20),
-      child: Text(
-        'Inicio de sesión',
-        style: TextStyle(
-          fontSize: 15,
-          color: Color(0xFF979797),
         ),
       ),
     );
@@ -64,22 +55,6 @@ class LoginView extends StatelessWidget {
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         labelText: labelText,
-      ),
-    );
-  }
-
-  Widget _buildButton() {
-    return Container(
-      margin: EdgeInsets.only(top: 20),
-      child: FlatButton(
-        //cuando es presionado, llama a un metodo
-        onPressed: () {},
-        child: Text(
-          'Ingresar',
-          style: TextStyle(color: Colors.white),
-        ),
-        color: Color(0xFF00B4DF),
-        highlightColor: Colors.black,
       ),
     );
   }
