@@ -56,6 +56,7 @@ class LoginView extends StatelessWidget {
         border: OutlineInputBorder(),
         labelText: labelText,
       ),
+      onChanged: (value) {},
     );
   }
 }

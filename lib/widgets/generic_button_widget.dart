@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/login_view/login_controller.dart';
 
 class GenericButtonWidget extends StatelessWidget {
   final String label;
   final Color bgColor;
   final double margin;
   final TextStyle textStyle;
+  final LoginController loginController = new LoginController();
 
-  const GenericButtonWidget({
+  GenericButtonWidget({
     Key key,
     this.label,
     this.bgColor,
@@ -20,7 +22,7 @@ class GenericButtonWidget extends StatelessWidget {
       margin: EdgeInsets.only(top: margin),
       child: FlatButton(
         onPressed: () {
-          print('Hola');
+          loginController.validateUserAndPassword('Leandro', '123');
         },
         child: Text(
           label,
