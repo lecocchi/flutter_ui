@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/images_page/images_page.dart';
 import 'package:flutter_ui/login_view/widgets/subtitle_widget.dart';
 import 'package:flutter_ui/login_view/widgets/title_widget.dart';
 import 'package:flutter_ui/widgets/generic_button_widget.dart';
 
 class LoginView extends StatelessWidget {
-  const LoginView({Key key}) : super(key: key);
+  const LoginView({
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class LoginView extends StatelessWidget {
             // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TitleWidget(
-                titleLabel: null,
+                titleLabel: 'Bienvenidos',
               ),
               SubtitleWidget(
                 label: 'Inicio de sesion',
@@ -36,6 +39,11 @@ class LoginView extends StatelessWidget {
                 obscureText: true,
               ),
               GenericButtonWidget(
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => ImagesPage(),
+                    )),
                 bgColor: Colors.blue,
                 label: 'Enviar',
                 margin: 20,
@@ -48,8 +56,7 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  Widget _buildTextField(
-      {@required String labelText, bool obscureText = false}) {
+  Widget _buildTextField({@required String labelText, bool obscureText = false}) {
     return TextField(
       obscureText: obscureText,
       decoration: InputDecoration(

@@ -5,13 +5,15 @@ class GenericButtonWidget extends StatelessWidget {
   final Color bgColor;
   final double margin;
   final TextStyle textStyle;
+  final VoidCallback onPressed;
 
   const GenericButtonWidget({
     Key key,
     this.label,
-    this.bgColor,
     this.margin,
+    this.bgColor,
     this.textStyle,
+    this.onPressed,
   }) : super(key: key);
 
   @override
@@ -19,9 +21,7 @@ class GenericButtonWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: margin),
       child: FlatButton(
-        onPressed: () {
-          print('Hola');
-        },
+        onPressed: () => onPressed(),
         child: Text(
           label,
           style: textStyle,

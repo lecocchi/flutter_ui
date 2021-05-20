@@ -11,8 +11,7 @@ class TitleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 20),
-      child: Text(titleLabel ?? '¡Bienvenido!',
-          style: TextStyle(color: Color(0xFF00B4DF), fontSize: 50)),
+      child: Text(titleLabel),
     );
   }
 }
